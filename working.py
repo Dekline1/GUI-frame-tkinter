@@ -1,20 +1,24 @@
 #
-resultsBox = tk.Text(window,
-                     width=int(variables.resultsBoxWidth * variables.windowSizeConverter),
-                     height=int(variables.resultsBoxHeight * variables.windowSizeConverter))
-resultsBox.configure(bg=variables.boxBackGroundColor, fg=variables.boxTextColor)
-resultsBox.place(x=variables.resultsBoxPlaceX * variables.windowSizeConverter,
-                 y=(variables.commandBoxPlaceY + variables.commandBoxHeight*15 + variables.commandAndResultsBoxOffset)
-                   * variables.windowSizeConverter)
+    try:
+        command = commandBox.get("1.0", "end-1c").strip()
+        commandBox.delete("1.0", tk.END)
+
+        if command:
+            result = command_list(command)
+            current_content = resultsBox.get("1.0", tk.END).splitlines()
+
+            if len(current_content) >= int(variables.resultBoxLength * variables.windowSizeConverter):
+                # resultsBox.insert(tk.END, str(resultsBox.place))
+                resultsBox.delete("1.0", "2.0")
+            resultsBox.insert(tk.END, result)
+            resultsBox.insert(tk.END, '\n')
+            resultsBox.see(tk.END)
 #
 
 
+def OPERATION_clear():
+    resultsBox.delete("1.0", tk.END)
 
-#
-commandBox = tk.Text(window, width=int(variables.commandBoxWidth * variables.windowSizeConverter),
-                     height=int(variables.commandBoxHeight * variables.windowSizeConverter))
-commandBox.place(x=variables.commandBoxPlaceX * variables.windowSizeConverter,
-                 y=variables.commandBoxPlaceY * variables.windowSizeConverter)
-commandBox.configure(bg=variables.boxBackGroundColor, fg=variables.boxTextColor)
-commandBox.bind('<Return>', execute)
-#
+
+def OPERATION_exit_app():
+    window.destroy()
