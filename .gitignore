@@ -1,4 +1,5 @@
 .idea/
 venv
-__pycache__/variables.cpython-311.pyc
+__pycache__/
 *.pyc
+working.py
