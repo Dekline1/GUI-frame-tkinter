@@ -1,8 +1,8 @@
 # by_script settable parameters & options (no parameters validation)
-windowSizeConverter = 0.5  # default value = 0.9, min rational value is 0.4
-backLogActive = True  # default value = True - backlog label and window visible
 
+backLogActive = True  # default value = True - backlog label and window visible
 fontSize = 14  # default value = 14 for bold, and 13 for normal. Non scalable
+backLogFontSize = 10 # default value = 10  Non scalable
 familyFont = "Source Code Pro"
 
 windowTitle = "GUI frame Tkinter"
@@ -16,6 +16,8 @@ boxTextColor = "#bcbec4"
 
 defaultUnknownCommandLine1 = "Unknown command: "
 defaultUnknownCommandLine2 = ", type: [h]elp"
+
+windowSizeConverter = 0.5  # default value = 0.9, min rational value is 0.4
 
 # all bellowed values is compared with windowSizeConverter in script
 

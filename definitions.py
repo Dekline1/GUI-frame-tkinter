@@ -1,8 +1,10 @@
+import glob
+
+
 def help_me():
     help_text = "\n"
     for userCommand in commandDictionary:
         help_text += commandDictionary[userCommand][1] + "\n"
-        # help_text += CommandDictionary[userCommand][1] + "\n"
     return help_text
 
 
@@ -12,6 +14,17 @@ def clear():
 
 def exit_app():
     return "exit"
+
+
+def back_log():
+    #  return str(commandDictionary) + "\n"
+    txt_files = glob.glob('*.txt')
+    content = []
+    for file_path in txt_files:
+        with open(file_path, 'r') as file:
+            content.extend(file.readlines())
+    print(content)
+    return content
 
 
 def send_report():

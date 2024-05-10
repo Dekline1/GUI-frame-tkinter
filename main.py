@@ -5,11 +5,12 @@ import definitions
 
 
 def execute(event=None, result_box_counter=0):
+
     def command_list(userCommand):
 
         if userCommand in definitions.commandDictionary:
-            #print(definitions.commandDictionary[userCommand][0]())
-            return str(definitions.commandDictionary[userCommand][0]())
+            # print(definitions.commandDictionary[userCommand][0]()) # for testing purpose
+            return definitions.commandDictionary[userCommand][0]()
         else:
             return variables.defaultUnknownCommandLine1 + userCommand + variables.defaultUnknownCommandLine2
 
@@ -30,6 +31,12 @@ def execute(event=None, result_box_counter=0):
                 resultsBox.insert(tk.END, result)
                 resultsBox.insert(tk.END, '\n')
                 resultsBox.see(tk.END)
+
+                backLogBox.insert(tk.END, definitions.back_log())
+                backLogBox.insert(tk.END, '\n')
+                backLogBox.see(tk.END)
+
+                # locals()
 
     except Exception as e:
         result = str(e)
@@ -106,7 +113,8 @@ commandBox.bind('<Return>', execute)
 if variables.backLogActive:
     backLogBox = tk.Text(window,
                          bg=variables.boxBackGroundColor,
-                         fg=variables.boxTextColor)
+                         fg=variables.boxTextColor,
+                         font=font.Font(size=variables.backLogFontSize))
 
     backLogBox.place(x=int(variables.backLogBoxPlaceX * variables.windowSizeConverter),
                      width=int(variables.backLogBoxWidth * variables.windowSizeConverter),
