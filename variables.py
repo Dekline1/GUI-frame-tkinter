@@ -17,23 +17,9 @@ boxTextColor = "#bcbec4"
 defaultUnknownCommandLine1 = "Unknown command: "
 defaultUnknownCommandLine2 = ", type: [h]elp"
 
-# command list, use # if not in use
-
-defaultCommandList = [
-    "[h]elp - display list of usable Commands",
-    "[c]lear - clean all windows",
-    "[e]xit - close app"]
-
-# add own commands here
-userCommandList = [
-    "a[1] - aaaaaaaaaa",
-    "a[2] - aaaaaaaaaa",
-    "a[3] - aaaaaaaaaa",
-    'a[4] - aaaaaaaaaa']
-
 # all bellowed values is compared with windowSizeConverter in script
 
-resultBoxLength = 15  # default value = 15 (experimental value, not real amount of lines)
+resultBoxLength = 35  # default value = 15 (experimental value, not real amount of lines)
 globalOffset = 30  # default value = 50
 
 labelCommandBoxWidth = 350  # default value = 350

@@ -1,36 +1,18 @@
 import tkinter as tk
 from tkinter import font
 import variables
+import definitions
 
 
 def execute(event=None, result_box_counter=0):
     def command_list(userCommand):
 
-        def help_me():
-            help_text = ""
-            for internalCommand in variables.defaultCommandList:
-                help_text += internalCommand + "\n"
-            help_text += "\n"
-            for internalCommand in variables.userCommandList:
-                help_text += internalCommand + "\n"
-            return help_text
-
-        def a1():
-            return "a1"
-
-        if userCommand == "h":
-            return help_me()
-        elif userCommand == 'c':
-            return "clear"
-        elif userCommand == 'e':
-            return "exit"
-        elif userCommand == '1':
-            return a1()
+        if userCommand in definitions.CommandDictionary:
+            print(definitions.CommandDictionary[userCommand]())
+            return str(definitions.CommandDictionary[userCommand]())
         else:
             return variables.defaultUnknownCommandLine1 + userCommand + variables.defaultUnknownCommandLine2
-        # return command_list_result
 
-    #
     try:
         command = commandBox.get("1.0", "end-1c").strip()
         commandBox.delete("1.0", tk.END)
@@ -48,7 +30,7 @@ def execute(event=None, result_box_counter=0):
                 resultsBox.insert(tk.END, result)
                 resultsBox.insert(tk.END, '\n')
                 resultsBox.see(tk.END)
-    #
+
     except Exception as e:
         result = str(e)
         resultsBox.insert(tk.END, result)
@@ -87,18 +69,16 @@ labelCommand.place(x=int(variables.labelCommandBoxPlaceX * variables.windowSizeC
                    height=int(variables.labelCommandBoxHeight * variables.windowSizeConverter))
 
 if variables.backLogActive:
-
     labelBackLog = tk.Label(window,
-                                text=variables.labelBackLogText,
-                                bg=variables.boxBackGroundColor,
-                                fg=variables.boxTextColor)
+                            text=variables.labelBackLogText,
+                            bg=variables.boxBackGroundColor,
+                            fg=variables.boxTextColor)
 
     labelBackLog.place(x=int(variables.labelBackLogBoxPlaceX * variables.windowSizeConverter),
                        width=int(variables.labelBackLogBoxWidth * variables.windowSizeConverter),
                        y=int((variables.labelCommandBoxPlaceY + variables.commandBoxHeight + variables.globalOffset
                               + variables.commandBoxHeight + variables.globalOffset) * variables.windowSizeConverter),
                        height=int(variables.labelCommandBoxHeight * variables.windowSizeConverter))
-
 
 labelResults = tk.Label(window,
                         text=variables.labelResultsText,
@@ -124,7 +104,6 @@ commandBox.place(x=int(variables.commandBoxPlaceX * variables.windowSizeConverte
 commandBox.bind('<Return>', execute)
 
 if variables.backLogActive:
-
     backLogBox = tk.Text(window,
                          bg=variables.boxBackGroundColor,
                          fg=variables.boxTextColor)
