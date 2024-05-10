@@ -1,5 +1,5 @@
 # by_script settable parameters & options (no parameters validation)
-windowSizeConverter = 0.9  # default value = 0.9, min rational value is 0.4
+windowSizeConverter = 0.5  # default value = 0.9, min rational value is 0.4
 backLogActive = True  # default value = True - backlog label and window visible
 
 fontSize = 14  # default value = 14 for bold, and 13 for normal. Non scalable

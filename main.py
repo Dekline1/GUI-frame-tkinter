@@ -7,9 +7,9 @@ import definitions
 def execute(event=None, result_box_counter=0):
     def command_list(userCommand):
 
-        if userCommand in definitions.CommandDictionary:
-            print(definitions.CommandDictionary[userCommand]())
-            return str(definitions.CommandDictionary[userCommand]())
+        if userCommand in definitions.commandDictionary:
+            #print(definitions.commandDictionary[userCommand][0]())
+            return str(definitions.commandDictionary[userCommand][0]())
         else:
             return variables.defaultUnknownCommandLine1 + userCommand + variables.defaultUnknownCommandLine2
 
