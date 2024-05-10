@@ -70,14 +70,14 @@ def window_geometry():
 
 
 window = tk.Tk()
-window.title("GUI frame Tkinter")
+window.title(variables.windowTitle)
 window_geometry()
 window.configure(bg=variables.windowBackGroundColor)
-default_font = font.Font(family="Source Code Pro", size=variables.fontSize)
+default_font = font.Font(family=variables.familyFont, size=variables.fontSize)
 window.option_add("*Font", default_font)
 
 labelCommand = tk.Label(window,
-                        text="Access terminal",
+                        text=variables.labelCommandLineText,
                         bg=variables.boxBackGroundColor,
                         fg=variables.boxTextColor)
 
@@ -86,12 +86,26 @@ labelCommand.place(x=int(variables.labelCommandBoxPlaceX * variables.windowSizeC
                    y=int(variables.labelCommandBoxPlaceY * variables.windowSizeConverter),
                    height=int(variables.labelCommandBoxHeight * variables.windowSizeConverter))
 
+if variables.backLogActive:
+
+    labelBackLog = tk.Label(window,
+                                text=variables.labelBackLogText,
+                                bg=variables.boxBackGroundColor,
+                                fg=variables.boxTextColor)
+
+    labelBackLog.place(x=int(variables.labelBackLogBoxPlaceX * variables.windowSizeConverter),
+                       width=int(variables.labelBackLogBoxWidth * variables.windowSizeConverter),
+                       y=int((variables.labelCommandBoxPlaceY + variables.commandBoxHeight + variables.globalOffset
+                              + variables.commandBoxHeight + variables.globalOffset) * variables.windowSizeConverter),
+                       height=int(variables.labelCommandBoxHeight * variables.windowSizeConverter))
+
+
 labelResults = tk.Label(window,
-                        text="Output data",
+                        text=variables.labelResultsText,
                         bg=variables.boxBackGroundColor,
                         fg=variables.boxTextColor)
 
-labelResults.place(x=int((variables.commandBoxPlaceX + variables.commandBoxWidth + variables.commandAndResultsBoxOffset)
+labelResults.place(x=int((variables.commandBoxPlaceX + variables.commandBoxWidth + variables.globalOffset)
                          * variables.windowSizeConverter),
                    width=int(variables.labelCommandBoxWidth * variables.windowSizeConverter),
                    y=int(variables.labelCommandBoxPlaceY * variables.windowSizeConverter),
@@ -104,20 +118,33 @@ commandBox = tk.Text(window,
 commandBox.place(x=int(variables.commandBoxPlaceX * variables.windowSizeConverter),
                  width=int(variables.commandBoxWidth * variables.windowSizeConverter),
                  y=int((variables.labelCommandBoxPlaceY + variables.labelCommandBoxHeight +
-                        variables.commandAndResultsBoxOffset) * variables.windowSizeConverter),
+                        variables.globalOffset) * variables.windowSizeConverter),
                  height=int(variables.commandBoxHeight * variables.windowSizeConverter))
 
 commandBox.bind('<Return>', execute)
+
+if variables.backLogActive:
+
+    backLogBox = tk.Text(window,
+                         bg=variables.boxBackGroundColor,
+                         fg=variables.boxTextColor)
+
+    backLogBox.place(x=int(variables.backLogBoxPlaceX * variables.windowSizeConverter),
+                     width=int(variables.backLogBoxWidth * variables.windowSizeConverter),
+                     y=int((variables.labelCommandBoxPlaceY + variables.commandBoxHeight + variables.globalOffset
+                            + variables.commandBoxHeight + variables.globalOffset + variables.labelBackLogBoxHeight
+                            + variables.globalOffset) * variables.windowSizeConverter),
+                     height=int(variables.backLogBoxHeight * variables.windowSizeConverter))
 
 resultsBox = tk.Text(window,
                      bg=variables.boxBackGroundColor,
                      fg=variables.boxTextColor)
 
 resultsBox.place(x=int((variables.commandBoxPlaceX + variables.commandBoxWidth +
-                        variables.commandAndResultsBoxOffset) * variables.windowSizeConverter),
+                        variables.globalOffset) * variables.windowSizeConverter),
                  width=int(variables.resultsBoxWidth * variables.windowSizeConverter),
                  y=int((variables.labelResultsBoxPlaceY + variables.labelResultsBoxHeight +
-                       variables.commandAndResultsBoxOffset) * variables.windowSizeConverter),
+                        variables.globalOffset) * variables.windowSizeConverter),
                  height=int(variables.resultsBoxHeight * variables.windowSizeConverter))
 
 window.mainloop()
