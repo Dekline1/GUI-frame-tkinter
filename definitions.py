@@ -17,14 +17,15 @@ def exit_app():
 
 
 def back_log():
-    #  return str(commandDictionary) + "\n"
-    txt_files = glob.glob('*.txt')
-    content = []
-    for file_path in txt_files:
-        with open(file_path, 'r') as file:
-            content.extend(file.readlines())
-    print(content)
-    return content
+    return "[sample text] This is back log output"
+    # #  return str(commandDictionary) + "\n"
+    # txt_files = glob.glob('*.txt')
+    # content = []
+    # for file_path in txt_files:
+    #     with open(file_path, 'r') as file:
+    #         content.extend(file.readlines())
+    # print(content)
+    # return content
 
 
 def send_report():

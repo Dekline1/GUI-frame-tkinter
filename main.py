@@ -4,12 +4,11 @@ import variables
 import definitions
 
 
-def execute(event=None, result_box_counter=0):
+def execute(event=None):
 
     def command_list(userCommand):
 
         if userCommand in definitions.commandDictionary:
-            # print(definitions.commandDictionary[userCommand][0]()) # for testing purpose
             return definitions.commandDictionary[userCommand][0]()
         else:
             return variables.defaultUnknownCommandLine1 + userCommand + variables.defaultUnknownCommandLine2
@@ -35,8 +34,6 @@ def execute(event=None, result_box_counter=0):
                 backLogBox.insert(tk.END, definitions.back_log())
                 backLogBox.insert(tk.END, '\n')
                 backLogBox.see(tk.END)
-
-                # locals()
 
     except Exception as e:
         result = str(e)

@@ -2,7 +2,7 @@
 
 backLogActive = True  # default value = True - backlog label and window visible
 fontSize = 14  # default value = 14 for bold, and 13 for normal. Non scalable
-backLogFontSize = 10 # default value = 10  Non scalable
+backLogFontSize = 10  # default value = 10  Non scalable
 familyFont = "Source Code Pro"
 
 windowTitle = "GUI frame Tkinter"
@@ -17,12 +17,12 @@ boxTextColor = "#bcbec4"
 defaultUnknownCommandLine1 = "Unknown command: "
 defaultUnknownCommandLine2 = ", type: [h]elp"
 
-windowSizeConverter = 0.5  # default value = 0.9, min rational value is 0.4
+windowSizeConverter = 0.9  # default value = 0.9, min rational value is 0.4
 
 # all bellowed values is compared with windowSizeConverter in script
 
-resultBoxLength = 35  # default value = 15 (experimental value, not real amount of lines)
-globalOffset = 30  # default value = 50
+resultBoxLength = 35  # default value = 35 (experimental value, not real amount of lines)
+globalOffset = 50  # default value = 50
 
 labelCommandBoxWidth = 350  # default value = 350
 labelCommandBoxHeight = 80  # default value = 80
@@ -30,7 +30,7 @@ labelCommandBoxPlaceX = 50  # default value = 50
 labelCommandBoxPlaceY = 50  # default value = 50
 
 labelResultsBoxWidth = 350  # default value = 350
-labelResultsBoxHeight = 80  # default value = 008
+labelResultsBoxHeight = 80  # default value = 80
 # labelResultsBoxPlaceX # auto adjusted in script
 labelResultsBoxPlaceY = 50  # default value = 50
 
