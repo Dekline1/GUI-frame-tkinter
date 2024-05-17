@@ -5,7 +5,6 @@ import definitions
 
 
 def execute(event=None):
-
     def command_list(userCommand):
 
         if userCommand in definitions.commandDictionary:
@@ -24,7 +23,7 @@ def execute(event=None):
             window.destroy()
         else:
             current_content = resultsBox.get("1.0", tk.END).splitlines()
-            if len(current_content) >= int(variables.resultBoxLength * variables.windowSizeConverter):
+            if len(current_content) >= float(variables.resultBoxLength * variables.windowSizeConverter):
                 resultsBox.delete("1.0", "2.0")
             else:
                 resultsBox.insert(tk.END, result)
@@ -115,7 +114,7 @@ if variables.backLogActive:
 
     backLogBox.place(x=int(variables.backLogBoxPlaceX * variables.windowSizeConverter),
                      width=int(variables.backLogBoxWidth * variables.windowSizeConverter),
-                     y=int((variables.labelCommandBoxPlaceY + variables.commandBoxHeight + variables.globalOffset
+                     y=int((variables.labelCommandBoxPlaceY + variables.labelCommandBoxHeight + variables.globalOffset
                             + variables.commandBoxHeight + variables.globalOffset + variables.labelBackLogBoxHeight
                             + variables.globalOffset) * variables.windowSizeConverter),
                      height=int(variables.backLogBoxHeight * variables.windowSizeConverter))

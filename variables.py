@@ -1,3 +1,5 @@
+import math
+
 # by_script settable parameters & options (no parameters validation)
 
 backLogActive = True  # default value = True - backlog label and window visible
@@ -17,11 +19,12 @@ boxTextColor = "#bcbec4"
 defaultUnknownCommandLine1 = "Unknown command: "
 defaultUnknownCommandLine2 = ", type: [h]elp"
 
-windowSizeConverter = 0.9  # default value = 0.9, min rational value is 0.4
+windowSizeConverter = 0.90  # default value = 0.9, min rational value is 0.4
 
 # all bellowed values is compared with windowSizeConverter in script
 
-resultBoxLength = 35  # default value = 35 (experimental value, not real amount of lines)
+resultBoxLength = math.inf  # default value = infinity, 35 is default for fit to window geometry (experimental value,
+# not real amount of lines)
 globalOffset = 50  # default value = 50
 
 labelCommandBoxWidth = 350  # default value = 350
@@ -45,11 +48,11 @@ commandBoxPlaceX = 50  # default value = 50
 # commandBoxPlaceY # auto adjusted in script
 
 resultsBoxWidth = 1050  # default value = 700
-resultsBoxHeight = 900  # default value = 400
+resultsBoxHeight = 860  # default value = 400
 # resultsBoxPlaceX  # auto adjusted in script
-resultsBoxPlaceY = 50  # default value = 50
+# resultsBoxPlaceY  # auto adjusted in script
 
 backLogBoxWidth = 700  # default value = 700
-backLogBoxHeight = 680  # default value = 400
+backLogBoxHeight = 600  # default value = 400
 backLogBoxPlaceX = 50  # default value = 50
 # commandBoxPlaceY # auto adjusted in script
